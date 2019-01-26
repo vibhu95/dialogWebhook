@@ -36,7 +36,7 @@ restService.post("/echoV2", function(req, res) {
       : "Seems like some problem. Speak again.";
   return res.json({
     fulfillmentText: speech,
-    fulfillmentMessages: 
+    fulfillmentMessages: [
       {
         "text": {
           "text": [
