@@ -1,8 +1,8 @@
 "use strict";
 
-const nodemailer = require('nodemailer');
 const express = require("express");
 const bodyParser = require("body-parser");
+const nodemailer = require('nodemailer');
 
 const restService = express();
 
@@ -25,6 +25,35 @@ restService.post("/echo", function(req, res) {
     speech: speech,
     displayText: speech,
     source: "webhook-echo-sample"
+  });
+});
+restService.get("/send", function(req,res){
+  var text ="i am jarvis!!";
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'vibhutinarayan95@gmail.com',
+      pass: '8299471901'
+    }
+  });
+  
+  var mailOptions = {
+    from: 'vibhutinarayan95@gmail.com',
+    to: 'vibhutinarayan995@gmail.com',
+    subject: 'Hello from jarvis!!',
+    text: text
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+  return res.json({
+    "status":"sent"
   });
 });
 
