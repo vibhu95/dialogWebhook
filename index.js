@@ -1,5 +1,6 @@
 "use strict";
 
+const nodemailer = require('nodemailer');
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -35,7 +36,29 @@ restService.post("/echoV2", function(req, res) {
       ? req.body.queryResult.parameters.echoText
       : "Seems like some problem. Speak again.";
       
-	console.log(speech);
+  console.log(speech);
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'vibhutinarayan95@gmail.com',
+      pass: '8299471901'
+    }
+  });
+  
+  var mailOptions = {
+    from: 'vibhutinarayan95@gmail.com',
+    to: 'vibhutinarayan995@gmail.com',
+    subject: 'Hello from jarvis!!',
+    text: speech
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
   return res.json({
     fulfillmentText: speech,
     fulfillmentMessages: [
