@@ -35,7 +35,7 @@ restService.post("/echoV2", function(req, res) {
     if(req.body.queryResult.parameters.echoText)
       speech = req.body.queryResult.parameters.echoText;
     if(req.body.queryResult.parameters.device)
-      speech +=req.body.queryResult.parameters.device;
+      speech +=req.body.queryResult.parameters.device; 
     if(req.body.queryResult.parameters.status)
       speech +=req.body.queryResult.parameters.status;
     
