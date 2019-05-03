@@ -27,43 +27,21 @@ restService.post("/echo", function(req, res) {
     source: "webhook-echo-sample"
   });
 });
-restService.get("/send", function(req,res){
-  var text ="i am jarvis!!";
-
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'vibhutinarayan95@gmail.com',
-      pass: '8299471901'
-    }
-  });
-  
-  var mailOptions = {
-    from: 'vibhutinarayan95@gmail.com',
-    to: 'vibhutinarayan995@gmail.com',
-    subject: 'Hello from jarvis!!',
-    text: text
-  };
-  
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
-  return res.json({
-    "status":"sent"
-  });
-});
 
 restService.post("/echoV2", function(req, res) {
-  var speech =
-    req.body.queryResult &&
-    req.body.queryResult.parameters &&
-    req.body.queryResult.parameters.echoText
-      ? req.body.queryResult.parameters.echoText
-      : "Seems like some problem. Speak again.";
+  var speech = "";
+  if(req.body.queryResult && req.body.queryResult.parameters)
+  {
+    if(req.body.queryResult.parameters.echoText)
+      speech = req.body.queryResult.parameters.echoText;
+    if(req.body.queryResult.parameters.device)
+      speech +=","+req.body.queryResult.parameters.device;
+    if(req.body.queryResult.parameters.status)
+      speech +=","+req.body.queryResult.parameters.status;
+    
+  }else{
+      speech = "Seems like some problem. Speak again.";
+  }
       
   console.log(speech);
   var transporter = nodemailer.createTransport({
