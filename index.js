@@ -47,13 +47,13 @@ restService.post("/echoV2", function(req, res) {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'vibhutinarayan95@gmail.com',
-      pass: '8299471901'
+      user: 'vibhuti@itscritical.tech',
+      pass: 'pu13/305'
     }
   });
   
   var mailOptions = {
-    from: 'vibhutinarayan95@gmail.com',
+    from: 'vibhuti@itscritical.tech',
     to: 'vibhutinarayan995@gmail.com',
     subject: 'Hello from jarvis!!',
     text: speech
