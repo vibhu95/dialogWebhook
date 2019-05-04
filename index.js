@@ -14,6 +14,34 @@ restService.use(
 
 restService.use(bodyParser.json());
 
+restService.get("/send",function(req,res){
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'vibhuti@itscritical.tech',
+      pass: 'pu13/305'
+    }
+  });
+  
+  var mailOptions = {
+    from: 'vibhuti@itscritical.tech',
+    to: 'vibhutinarayan995@gmail.com',
+    subject: 'Hello from jarvis!!',
+    text: "testing"
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+  return res.json({
+    status:"message has been sent !!"
+  });
+});
+
 restService.post("/echo", function(req, res) {
   var speech =
     req.body.result &&
@@ -33,9 +61,9 @@ restService.post("/echoV2", function(req, res) {
   if(req.body.queryResult && req.body.queryResult.parameters)
   {
     if(req.body.queryResult.parameters.echoText)
-      speech = req.body.queryResult.parameters.echoText;
+      speech = req.body.queryResult.parameters.echoText+" ";
     if(req.body.queryResult.parameters.device)
-      speech +=req.body.queryResult.parameters.device; 
+      speech +=req.body.queryResult.parameters.device+" "; 
     if(req.body.queryResult.parameters.status)
       speech +=req.body.queryResult.parameters.status;
     
