@@ -16,9 +16,9 @@ restService.use(bodyParser.json());
 
 restService.post("/vhic/send/mail/",function(req,res){
   var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: 'hotmail',
     auth: {
-      user: 'hackbug00978@gmail.com',
+      user: 'HackBug00978@hotmail.com',
       pass: 'hackbug@12345,.'
     }
   });
@@ -49,15 +49,15 @@ restService.post("/vhic/send/mail/",function(req,res){
 
 restService.get("/send",function(req,res){
   var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: 'yahoo',
     auth: {
-      user: 'vibhutinarayancdac995@gmail.com',
-      pass: 'pu13/305'
+      user: 'vibhutinarayan95@yahoo.com',
+      pass: 'pu13/395'
     }
   });
   
   var mailOptions = {
-    from: 'vibhutinarayancdac995@gmail.com',
+    from: 'vibhutinarayan95@yahoo.com',
     to: 'vibhutinarayan995@gmail.com',
     subject: 'Hello from jarvis!!',
     text: "testing"
