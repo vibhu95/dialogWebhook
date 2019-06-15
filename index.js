@@ -18,8 +18,8 @@ restService.post("/vhic/send/mail/",function(req,res){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'vibhuti@itscritical.tech',
-      pass: 'pu13/395'
+      user: 'hackbug00978@gmail.com',
+      pass: 'hackbug@12345,.'
     }
   });
   
@@ -27,7 +27,7 @@ restService.post("/vhic/send/mail/",function(req,res){
   var data = req.body.data || "";
 
   var mailOptions = {
-    from: 'vibhuti@itscritical.tech',
+    from: 'hackbug00978@gmail.com',
     to: receiver,
     subject: 'Filled data',
     text: data
@@ -51,13 +51,13 @@ restService.get("/send",function(req,res){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'vibhuti@itscritical.tech',
-      pass: 'pu13/395'
+      user: 'hackbug00978@gmail.com',
+      pass: 'hackbug@12345,.'
     }
   });
   
   var mailOptions = {
-    from: 'vibhuti@itscritical.tech',
+    from: 'hackbug00978@gmail.com',
     to: 'vibhutinarayan995@gmail.com',
     subject: 'Hello from jarvis!!',
     text: "testing"
@@ -108,13 +108,13 @@ restService.post("/echoV2", function(req, res) {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'vibhuti@itscritical.tech',
-      pass: 'pu13/395'
+      user: 'hackbug00978@gmail.com',
+      pass: 'hackbug@12345,.'
     }
   });
   
   var mailOptions = {
-    from: 'vibhuti@itscritical.tech',
+    from: 'hackbug00978@gmail.com',
     to: 'vibhutinarayan995@gmail.com',
     subject: 'Hello from jarvis!!',
     text: speech
