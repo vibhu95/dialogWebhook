@@ -14,7 +14,7 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.get("/vhic/send/mail/",function(req,res){
+restService.post("/vhic/send/mail/",function(req,res){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
