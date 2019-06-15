@@ -14,12 +14,45 @@ restService.use(
 
 restService.use(bodyParser.json());
 
+restService.get("/vhic/send/mail/",function(req,res){
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'vibhuti@itscritical.tech',
+      pass: 'pu13/395'
+    }
+  });
+  
+  var receiver = req.body.mail || "amit00978@gmail.com";
+  var data = req.body.data || "";
+
+  var mailOptions = {
+    from: 'vibhuti@itscritical.tech',
+    to: receiver,
+    subject: 'Filled data',
+    text: data
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+  return res.json({
+    message:"message has been sent !!",
+    status:true
+  });
+});
+
+
 restService.get("/send",function(req,res){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'vibhuti@itscritical.tech',
-      pass: 'pu13/305'
+      pass: 'pu13/395'
     }
   });
   
