@@ -75,6 +75,34 @@ restService.get("/send",function(req,res){
   });
 });
 
+restService.get("/send/yahoo",function(req,res){
+  var transporter = nodemailer.createTransport({
+    service: 'yahoo',
+    auth: {
+      user: 'vibhutinarayan95@yahoo.com',
+      pass: 'pu13/395'
+    }
+  });
+  
+  var mailOptions = {
+    from: 'vibhutinarayan95@yahoo.com',
+    to: 'vibhutinarayan95@yahoo.com',
+    subject: 'Hello from jarvis!!',
+    text: "testing"
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+  return res.json({
+    status:"message has been sent !!"
+  });
+});
+
 restService.post("/echo", function(req, res) {
   var speech =
     req.body.result &&
