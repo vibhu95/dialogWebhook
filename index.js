@@ -51,13 +51,13 @@ restService.get("/send",function(req,res){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'hackbug00978@gmail.com',
-      pass: 'hackbug@12345,.'
+      user: 'vibhutinarayancdac995@gmail.com',
+      pass: 'pu13/305'
     }
   });
   
   var mailOptions = {
-    from: 'hackbug00978@gmail.com',
+    from: 'vibhutinarayancdac995@gmail.com',
     to: 'vibhutinarayan995@gmail.com',
     subject: 'Hello from jarvis!!',
     text: "testing"
