@@ -30,7 +30,7 @@ restService.post("/vhic/send/mail/",function(req,res){
     from: 'hackbug00978@gmail.com',
     to: receiver,
     subject: 'Filled data',
-    text: data
+    text: JSON.stringify(data)
   };
   
   transporter.sendMail(mailOptions, function(error, info){
