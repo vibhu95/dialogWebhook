@@ -16,7 +16,7 @@ restService.use(bodyParser.json());
 
 restService.post("/vhic/send/mail/",function(req,res){
   var transporter = nodemailer.createTransport({
-    service: 'hotmail',
+    service: 'yahoo',
     auth: {
       user: 'vibhutinarayan95@yahoo.com',
       pass: 'pu13/395'
