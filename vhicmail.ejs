@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .main-container{
+            background-color: #f2f2f2;
+            width: 100%;
+            height: 100vh;
+        }
+        .container-view{
+            background-color: #fff;
+            width: 90%;
+            margin: 3% 5%;
+        }
+        .main-heading{
+            color: #757171;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 10px 0;
+        }
+        .inner-container{
+            padding: 10px;
+        }
+        .table-view{
+            width: 100%;
+        }
+        .table-view thead tr{
+            text-align: left;
+            color: #8c8b8b;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+        .table-view tr td:first-child,.table-view tr th:first-child{
+            max-width: 60%;            
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container-view">
+                <h2 class="main-heading">VHIC Content</h2>
+                <hr style="border-style: ridge; width: 90%;">
+                <div class="inner-container">
+                    <table class="table-view" cellspacing="10px" cellpadding="5px">
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th align="right">Answer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <% entries.map(entry => { %>   
+                            <tr>
+                                <td><%= entry.question %></td>
+                                <td align="right"><%= entry.answer %></td>
+                            </tr>
+                        <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
