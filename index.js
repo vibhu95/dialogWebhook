@@ -188,6 +188,8 @@ restService.post("/echoV2", function(req, res) {
   });
 });
 
+console.log('TEMP_KEY ::: ',process.env.TEMP_KEY);
+
 restService.listen(process.env.PORT || 8000, function() {
   console.log("Server up and listening");
 });
